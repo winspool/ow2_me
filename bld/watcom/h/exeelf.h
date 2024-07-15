@@ -44,13 +44,13 @@ typedef unsigned_32     Elf32_Off;
 typedef signed_32       Elf32_Sword;
 typedef unsigned_32     Elf32_Word;
 
-typedef unsigned_64     Elf64_Addr;
+typedef uint64_t        Elf64_Addr;
 typedef uint16_t        Elf64_Half;
-typedef unsigned_64     Elf64_Off;
+typedef uint64_t        Elf64_Off;
 typedef int32_t         Elf64_Sword;
-typedef signed_64       Elf64_Sxword;
+typedef int64_t         Elf64_Sxword;
 typedef uint32_t        Elf64_Word;
-typedef unsigned_64     Elf64_Xword;
+typedef uint64_t        Elf64_Xword;
 
 // the main header
 
