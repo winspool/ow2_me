@@ -950,7 +950,13 @@ static  int  ParseArgs( int argc, char **argv )
             }
             break;
         case 'l':
-            if( Word[0] != '\0' ) {
+            /* The Single UNIX Specification expects, that "-l m"
+               (math functions) and "-l pthread" (POSIX thread functions) work.
+               Our implementations are not in separate libraries,
+               so just ignore the link options here
+               TODO: More libs are affected, but not implemented in OpenWatcom */
+            if( Word[0] != '\0' &&
+              ( strcmp( Word, "m" ) != 0 ) && ( strcmp( Word, "pthread" ) != 0 ) ) {
                 new_item = MemAlloc( sizeof( list ) );
                 new_item->next = NULL;
                 p = MemAlloc( 3 + strlen( Word ) + 2 + 1 );
